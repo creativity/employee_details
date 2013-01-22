@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @salary_detail.user_id %>
+</p>
+
+<p>
+  <b>Salary amount:</b>
+  <%= @salary_detail.salary_amount %>
+</p>
+
+<p>
+  <b>Salary deducted:</b>
+  <%= @salary_detail.salary_deducted %>
+</p>
+
+<p>
+  <b>Total salary:</b>
+  <%= @salary_detail.total_salary %>
+</p>
+
+<p>
+  <b>Difference to pay:</b>
+  <%= @salary_detail.difference_to_pay %>
+</p>
+
+
+<%= link_to 'Edit', edit_salary_detail_path(@salary_detail) %> |
+<%= link_to 'Back', salary_details_path %>

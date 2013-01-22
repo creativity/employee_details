@@ -1,0 +1,39 @@
+html, body {
+    height: 100%;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+#wrap {
+    min-height: 100%;
+}
+#wrap {
+    width: 100%;
+    background-image:url('green-background.gif');
+}
+#header {
+    border-bottom: 1px solid #97A2BA;
+    height: 75px;
+    padding: 15px 0;
+	background:black;
+}
+#main {
+    clear: both;
+    margin: 0 auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 800px;
+	
+}
+#main {
+    overflow: auto;
+    
+}
+#footer {
+    clear: both;
+    height: 180px;
+    margin-top: -180px;
+    position: relative;
+	background:black;
+}

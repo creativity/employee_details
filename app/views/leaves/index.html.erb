@@ -1,0 +1,27 @@
+<h1>Listing leaves</h1>
+
+<table>
+  <tr>
+    <th>Leave name</th>
+    <th>Leavetype</th>
+    <th>Noofleaves</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @leaves.each do |leafe| %>
+  <tr>
+    <td><%= leafe.leave_name %></td>
+    <td><%= leafe.LeaveType %></td>
+    <td><%= leafe.NoOfLeaves %></td>
+    <td><%= link_to 'Show', leafe %></td>
+    <td><%= link_to 'Edit', edit_leafe_path(leafe) %></td>
+    <td><%= link_to 'Destroy', leafe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Leave', new_leafe_path %>
