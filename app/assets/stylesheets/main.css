@@ -10,13 +10,14 @@ html, body {
 }
 #wrap {
     width: 100%;
-    background-image:url('green-background.gif');
+    
 }
 #header {
     border-bottom: 1px solid #97A2BA;
     height: 75px;
     padding: 15px 0;
-	background:black;
+	background-image:url('news-background-wide.jpg');
+    
 }
 #main {
     clear: both;
@@ -35,5 +36,5 @@ html, body {
     height: 180px;
     margin-top: -180px;
     position: relative;
-	background:black;
+	background-image:url('news-background-wide.jpg');
 }
