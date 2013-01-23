@@ -1,0 +1,31 @@
+= form_for(@salary_detail) do |f|
+	- if @salary_detail.errors.any?
+		#error_explanation
+			%h2
+				= pluralize(@salary_detail.errors.count, "error")
+				prohibited this salary_detail from being saved:
+			%ul
+				- @salary_detail.errors.full_messages.each do |msg|
+					%li= msg
+	.field
+		= f.label :user_id
+		%br/
+		= f.number_field :user_id
+	.field
+		= f.label :salary_amount
+		%br/
+		= f.text_field :salary_amount
+	.field
+		= f.label :salary_deducted
+		%br/
+		= f.text_field :salary_deducted
+	.field
+		= f.label :total_salary
+		%br/
+		= f.text_field :total_salary
+	.field
+		= f.label :difference_to_pay
+		%br/
+		= f.text_field :difference_to_pay
+	.actions
+		= f.submit

@@ -1,0 +1,23 @@
+%h1 Listing salary_details
+%table
+	%tr
+		%th User
+		%th Salary amount
+		%th Salary deducted
+		%th Total salary
+		%th Difference to pay
+		%th
+		%th
+		%th
+	- @salary_details.each do |salary_detail|
+		%tr
+			%td= salary_detail.user_id
+			%td= salary_detail.salary_amount
+			%td= salary_detail.salary_deducted
+			%td= salary_detail.total_salary
+			%td= salary_detail.difference_to_pay
+			%td= link_to 'Show', salary_detail
+			%td= link_to 'Edit', edit_salary_detail_path(salary_detail)
+			%td= link_to 'Destroy', salary_detail, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Salary detail', new_salary_detail_path

@@ -1,0 +1,19 @@
+%p#notice= notice
+%p
+	%b User:
+	= @salary_detail.user_id
+%p
+	%b Salary amount:
+	= @salary_detail.salary_amount
+%p
+	%b Salary deducted:
+	= @salary_detail.salary_deducted
+%p
+	%b Total salary:
+	= @salary_detail.total_salary
+%p
+	%b Difference to pay:
+	= @salary_detail.difference_to_pay
+= link_to 'Edit', edit_salary_detail_path(@salary_detail)
+|
+\#{link_to 'Back', salary_details_path}
