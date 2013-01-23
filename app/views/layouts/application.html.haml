@@ -8,12 +8,12 @@
 		#header
 			%body
 			- if user_signed_in?
-				= link_to "Sign Out",destroy_user_session_path ,:method=>:delete
+				.sign-out
+					= link_to "Sign Out",destroy_user_session_path ,	:method=>:delete
 		#wrap
 			#main
-				.field
-					%p.notice= notice
-					%p.alert= alert
-					= yield
+				%p.notice= notice
+				%p.alert= alert	
+				= yield
 		#footer		
 	 	

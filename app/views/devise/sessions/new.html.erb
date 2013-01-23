@@ -1,25 +1,27 @@
-<h2>Sign in</h2>
+<div class="field">
+	<h2>Sign in</h2>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div style="width:330px;float:left;margin-bottom:5px;">
-  	<div class="left" style="width:100px;"><%= f.label :email %></div>
-  	<div class="left" style="width:100px;"><%= f.email_field :email %></div>
-  </div>
+	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+	  <div style="width:330px;float:left;margin-bottom:5px;">
+	  	<div class="left" style="width:100px;"><%= f.label :email %></div>
+	  	<div class="left" style="width:100px;"><%= f.email_field :email %></div>
+	  </div>
 
-  <div style="width:330px;float:left;margin-bottom:5px;">
-  	<div class="left" style="width:100px;"><%= f.label :password %></div>
-  	<div class="left" style="width:100px;"><%= f.password_field :password %></div>
-  </div>
+	  <div style="width:330px;float:left;margin-bottom:5px;">
+	  	<div class="left" style="width:100px;"><%= f.label :password %></div>
+	  	<div class="left" style="width:100px;"><%= f.password_field :password %></div>
+	  </div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div style="width:200px;float:left;margin-left:100px;">
-    	<div class="left" style="width:20px;"><%= f.check_box :remember_me %></div>
-    	<div class="left" style="width:100px;"><%= f.label :remember_me %></div>
-    </div>
-  <% end -%>
-  	<div class="left" style="width:100px;margin-left:100px;"><%= f.submit "Sign in" %></div>
-<% end %>
+	  <% if devise_mapping.rememberable? -%>
+	    <div style="width:200px;float:left;margin-left:100px;">
+	    	<div class="left" style="width:20px;"><%= f.check_box :remember_me %></div>
+	    	<div class="left" style="width:100px;"><%= f.label :remember_me %></div>
+	    </div>
+	  <% end -%>
+	  	<div class="left" style="width:100px;margin-left:100px;"><%= f.submit "Sign in" %></div>
+	<% end %>
 
-<div class="left" style="width:200px;margin-left:100px;">
-	<%= render "devise/shared/links" %>
-</div>	
+	<div class="left" style="width:200px;margin-left:100px;">
+		<%= render "devise/shared/links" %>
+	</div>
+</div>
