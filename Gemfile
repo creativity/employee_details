@@ -8,7 +8,8 @@ gem 'devise'
 
 gem 'haml'
 
-gem 'mysql2'
+gem 'pg', :group => [:production]
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
 
