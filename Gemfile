@@ -8,6 +8,7 @@ gem 'devise'
 
 gem 'haml'
 
+gem 'mysql2'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
 
