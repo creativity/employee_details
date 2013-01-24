@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %b Leave name:
+  = @leafe.leave_name
+%p
+  %b Leavetype:
+  = @leafe.LeaveType
+%p
+  %b Noofleaves:
+  = @leafe.NoOfLeaves
+= link_to 'Edit', edit_leafe_path(@leafe)
+|
+\#{link_to 'Back', leaves_path}

@@ -1,0 +1,21 @@
+%h1 Listing messages
+%table
+	%tr
+		%th Message
+		%th Subject
+		%th Message from
+		%th Message to
+		%th
+		%th
+		%th
+	- @messages.each do |message|
+		%tr
+			%td= message.message
+			%td= message.subject
+			%td= message.message_from
+			%td= message.message_to
+			%td= link_to 'Show', message
+			%td= link_to 'Edit', edit_message_path(message)
+			%td= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Message', new_message_path
