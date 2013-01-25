@@ -22,3 +22,5 @@ gem 'jquery-rails'
 
 gem	'engineyard'
 
+gem 'recaptcha', :require => 'recaptcha/rails'
+
