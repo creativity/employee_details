@@ -10,6 +10,8 @@ gem 'haml'
 
 gem 'pg', :group => [:production]
 
+gem 'mysql2'
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
 
@@ -23,4 +25,6 @@ gem 'jquery-rails'
 gem	'engineyard'
 
 gem 'recaptcha', :require => 'recaptcha/rails'
+
+gem 'rack' , '1.4.1'
 

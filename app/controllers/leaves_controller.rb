@@ -1,6 +1,7 @@
 class LeavesController < ApplicationController
   # GET /leaves
   # GET /leaves.json
+  before_filter :user_role 
   def index
     @leaves = Leave.all
 
