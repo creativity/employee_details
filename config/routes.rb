@@ -3,6 +3,8 @@ HindaviEmployee::Application.routes.draw do
 
   get "home/index"
 
+  get "home/admin_index"
+  
   resources :leaves
 
 
