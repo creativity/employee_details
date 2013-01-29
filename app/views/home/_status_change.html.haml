@@ -1,0 +1,13 @@
+%table.table.table-striped
+	%tr
+		%th Name
+		%th Email
+		%th Status
+	- @user.each do |u|
+		%tr
+			%td= u.username
+			%td= u.email
+			- if u.status=="Active"
+				%td= link_to "Deactivate User",home_status_path(:deactivate_id=>u.id),:remote=>"true"
+			- else
+				%td=	link_to "Activate User",home_status_path(:activate_id=>u.id),:remote=>"true"
