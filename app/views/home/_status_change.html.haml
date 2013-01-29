@@ -3,6 +3,7 @@
 		%th Name
 		%th Email
 		%th Status
+		%th Team
 	- @user.each do |u|
 		%tr
 			%td= u.username
@@ -11,3 +12,4 @@
 				%td= link_to "Deactivate User",home_status_path(:deactivate_id=>u.id),:remote=>"true"
 			- else
 				%td=	link_to "Activate User",home_status_path(:activate_id=>u.id),:remote=>"true"
+			%td= u.teams[0].team_name
