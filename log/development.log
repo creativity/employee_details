@@ -19180,3 +19180,119 @@ Served asset /salary_details.js - 304 Not Modified (0ms)
 
 Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2013-01-25 18:00:20 +0530
 Served asset /tasks.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTasks (20130121121620)
+Migrating to CreateSalaryDetails (20130121123336)
+Migrating to CreateMessages (20130121124423)
+Migrating to CreateLeaves (20130122072906)
+Migrating to DeviseCreateUsers (20130122111315)
+Migrating to AddRoleToUser (20130122111548)
+Migrating to CreateRoles (20130123121040)
+Migrating to CreateUserRoles (20130123122042)
+Migrating to RenameTableUserRoles (20130124062716)
+Migrating to AddStatusToUser (20130128104801)
+  [1m[35m (0.3ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "users" ADD "status" varchar(255)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130128104801')[0m
+  [1m[35m (1.4ms)[0m  commit transaction
+Migrating to CreateAttendances (20130128105854)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "attendances" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "day" datetime, "login_time" time, "weekly_hours" integer, "logout_time" time, "monthly_hours" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130128105854')[0m
+  [1m[35m (1.5ms)[0m  commit transaction
+Migrating to AddUsernameToUser (20130128131304)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "users" ADD "username" varchar(255)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130128131304')[0m
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-01-29 11:18:15 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (1.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (48.4ms)
+Compiled main.css  (0ms)  (pid 7836)
+Completed 200 OK in 193ms (Views: 156.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2013-01-29 11:18:15 +0530
+Served asset /main.css - 200 OK (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-29 11:18:15 +0530
+Served asset /jquery.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-29 11:18:15 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2013-01-29 11:18:15 +0530
+Served asset /home.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/salary_details.js?body=1" for 127.0.0.1 at 2013-01-29 11:18:15 +0530
+Served asset /salary_details.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/leaves.js?body=1" for 127.0.0.1 at 2013-01-29 11:18:15 +0530
+Served asset /leaves.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/registrations.js?body=1" for 127.0.0.1 at 2013-01-29 11:18:15 +0530
+Served asset /registrations.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/messages.js?body=1" for 127.0.0.1 at 2013-01-29 11:18:15 +0530
+Served asset /messages.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2013-01-29 11:18:15 +0530
+Served asset /tasks.js - 304 Not Modified (1ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2013-01-29 11:20:44 +0530
+Processing by RegistrationsController#new as HTML
+  Rendered devise/shared/_links.erb (0.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 24ms (Views: 23.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2013-01-29 11:20:44 +0530
+Served asset /main.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-29 11:20:44 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-29 11:20:44 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2013-01-29 11:20:44 +0530
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/leaves.js?body=1" for 127.0.0.1 at 2013-01-29 11:20:44 +0530
+Served asset /leaves.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/messages.js?body=1" for 127.0.0.1 at 2013-01-29 11:20:44 +0530
+Served asset /messages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/registrations.js?body=1" for 127.0.0.1 at 2013-01-29 11:20:44 +0530
+Served asset /registrations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/salary_details.js?body=1" for 127.0.0.1 at 2013-01-29 11:20:44 +0530
+Served asset /salary_details.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2013-01-29 11:20:44 +0530
+Served asset /tasks.js - 304 Not Modified (0ms)
