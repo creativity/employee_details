@@ -25,3 +25,7 @@ gem 'jquery-rails'
 gem	'engineyard'
 
 gem 'rack' , '1.4.1'
+
+gem "ckeditor"
+
+gem 'bootstrap-sass'
