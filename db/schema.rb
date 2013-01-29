@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130124062716) do
+ActiveRecord::Schema.define(:version => 20130128131304) do
+
+  create_table "attendances", :force => true do |t|
+    t.integer  "user_id"
+    t.datetime "day"
+    t.time     "login_time"
+    t.integer  "weekly_hours"
+    t.time     "logout_time"
+    t.integer  "monthly_hours"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "leaves", :force => true do |t|
     t.string   "leave_name"
@@ -77,6 +88,8 @@ ActiveRecord::Schema.define(:version => 20130124062716) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "role"
+    t.string   "status"
+    t.string   "username"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

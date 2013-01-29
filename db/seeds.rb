@@ -5,5 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-User.create(:email=>"admin@hindavi.in",:password=>"admin@h",:password_confirmation=>"admin@h",:role=>"Admin")
+User.create(:email=>"admin@hindavi.in",:password=>"admin@h",:password_confirmation=>"admin@h",:role=>"Admin",:status=>"Active",:username=>"Shruti")
 Role.create([{ role_type: 'super_admin' }, { role_type: 'admin' },	{ role_type: 'user' }])
