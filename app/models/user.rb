@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   
   has_many :team_users
   has_many :teams, :through=>:team_users 
- 
+  has_many :addresses
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
