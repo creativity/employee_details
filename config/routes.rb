@@ -1,5 +1,6 @@
 HindaviEmployee::Application.routes.draw do
-  devise_for :users
+
+  devise_for :users, controllers: { registrations: 'registrations' }, :path => "users"
 
   get "home/index"
 
