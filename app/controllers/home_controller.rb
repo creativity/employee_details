@@ -17,8 +17,8 @@ class HomeController < ApplicationController
   end  
 
   # This method is for admin to change status of user profile.
- def status
-   
+  
+  def status
    if params[:deactivate_id]
      User.update(params[:deactivate_id],:status=>"Deactive") 
          @user=User.all
@@ -37,5 +37,15 @@ class HomeController < ApplicationController
        end 
     end 
   end 
+
+
+  # This method is for fetching list of all users applied for appraisals.
+
+  def list_appraisal
+       @lsitofuser=Appraisal.group(:user_id)
+  end  
+
+
+
 
 end # Controller ends

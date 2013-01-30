@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :teams, :through=>:team_users 
   has_many :addresses
   has_many :attendances
-
+  has_one :appraisal
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable

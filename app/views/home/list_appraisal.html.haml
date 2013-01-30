@@ -1,0 +1,8 @@
+%table.table.table-striped
+	%tr
+		%th User Name
+		%th See all Applications
+	- @lsitofuser.each do |a|
+		%tr
+			%td= a.user.first_name if !a.user.nil?
+			%td= link_to "See applications",appraisal_index_path(:id=>a.user_id)
