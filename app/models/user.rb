@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
+
 	# associations----------------------------------------------------------------------------------------
-	has_and_belongs_to_many	:roles
-  
+	belongs_to  :role
   has_many :team_users
   has_many :teams, :through=>:team_users 
   has_many :addresses
@@ -14,8 +14,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
+
   attr_accessible :email, :password, :password_confirmation, :remember_me,:role,:status,:username,:first_name,:last_name,:middle_name
 
 
   # attr_accessible :title, :body
+
 end
