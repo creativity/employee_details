@@ -2,14 +2,14 @@
 %html
 	%head
 		%title HindaviEmployee
-		= stylesheet_link_tag   "main"
+		= stylesheet_link_tag   "main","application"
 		= javascript_include_tag    "application"
 		= csrf_meta_tags
 		#header
 		#navbar
 			%ul
 				%li
-					=link_to "Employees","#"
+					=link_to "Employees",home_user_list_path
 				%li
 					=link_to "Attendance","#"
 				%li
@@ -25,8 +25,7 @@
 					= link_to "Sign Out",destroy_user_session_path ,:method=>:delete
 		#wrap
 			#main
-				%p.notice= notice
-				%p.alert= alert 
+				
 				= yield
 		#footer
 			= "copy right @hindavi.in" 
