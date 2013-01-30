@@ -7,21 +7,40 @@
     = csrf_meta_tags
     #header
     - if user_signed_in?
-      #navbar
-        %ul
-          %li
-            =link_to "Employees",home_user_list_path
-          %li
-            =link_to "Attendance","#"
-          %li
-            =link_to "Apraisals","#"
-          %li
-            =link_to "Leaves","#"
-          %li
-            =link_to "Events","#"
-        %body
-        .sign-out
-          = link_to "Sign Out",destroy_user_session_path ,:method=>:delete
+      - if current_user.is_admin?
+        #navbar
+          %ul
+            %li
+              =link_to "Employees",home_user_list_path
+            %li
+              =link_to "Attendance","#"
+            %li
+              =link_to "Apraisals","#"
+            %li
+              =link_to "Leaves","#"
+            %li
+              =link_to "Events","#"
+          %body
+          .sign-out
+            = link_to "Sign Out",destroy_user_session_path ,:method=>:delete
+      - else
+        #navbar
+          %ul
+            %li
+              =link_to "Log In",home_user_list_path
+            %li
+              =link_to "Attendance","#"
+            %li
+              =link_to "Appraisals","#"
+            %li
+              =link_to "Employee Details","#"
+            %li
+              =link_to "View Events","#"
+            %li
+              =link_to "Salary Slip","#"
+          %body
+          .sign-out
+            = link_to "Sign Out",destroy_user_session_path ,:method=>:delete
     #wrap
       #main
         = yield
