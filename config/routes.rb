@@ -1,5 +1,7 @@
 HindaviEmployee::Application.routes.draw do
 
+  #get "appraisal/index"
+
   devise_for :users, controllers: { registrations: 'registrations' }, :path => "users"
 
   get "home/index"
@@ -21,7 +23,7 @@ HindaviEmployee::Application.routes.draw do
 
   resources :tasks
 
-
+  resources :appraisal
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
