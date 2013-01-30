@@ -7,7 +7,6 @@ class HomeController < ApplicationController
     end		
   end
 
-
   def admin_index
   end
   	
@@ -17,25 +16,20 @@ class HomeController < ApplicationController
   end  
 
   # This method is for admin to change status of user profile.
- def status
-   
+  def status
    if params[:deactivate_id]
-     User.update(params[:deactivate_id],:status=>"Deactive") 
-         @user=User.all
-         p ">>>>>>>>>>>>>>>"
-         p @user
+     User.update(params[:deactivate_id],:status=>"Deactive")
+    @user=User.all
      render :update do |page|
        page.replace_html 'userlist', :partial => 'home/status_change', :object=>@user, :layout => false
-      end  
+      end
     else
-      User.update(params[:activate_id],:status=>"Active") 
-         @user=User.all
-         p ">>>>>>>>>>>>>>>>>"
-         p @user
+      User.update(params[:activate_id],:status=>"Active")
+       @user=User.all
        render :update do |page|
         page.replace_html 'userlist', :partial => 'home/status_change', :object=>@user, :layout => false
-       end 
-    end 
-  end 
+       end
+    end
+  end
 
 end # Controller ends
