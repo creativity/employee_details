@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  role_type: MyString
-  user_id: 1
-
-two:
-  role_type: MyString
-  user_id: 1
