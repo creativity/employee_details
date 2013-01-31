@@ -14,18 +14,27 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me,:role,:status,:username,:first_name,:last_name,:middle_name
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :status, :username, :role, :role_id, :first_name, :last_name
+
+  # callbacks -----------------------------------------------------------------------------------------------
+  after_create  :create_user_role
 
   # methods -----------------------------------------------------------------------------------------------
 
   def is_admin?
     unless self.role.blank?
-      return false if self.role.role_type == $roles[:admin]
+      return false unless self.role.role_type == $roles[:admin]
       return true
     else
       false
     end
   end
 
+  def create_user_role
+    if self.role.blank?
+      id = Role.select{|role| role.role_type == $roles[:user]}.map(&:id)
+      self.update_attributes(:role_id => id[0])
+    end
+  end
 
 end
