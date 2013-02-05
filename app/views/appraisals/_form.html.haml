@@ -1,9 +1,9 @@
 = form_for(@appraisal) do |f|
   %ul
   - @appraisal.errors.full_messages.each do |msg|
-    %li= msg
+    %li.errors= msg
   .field1
-    = f.label :date_of_joining
+    = f.label :joining_date
     %br/
     = f.text_field :date_of_joining, :id => "datepicker"
   .field1

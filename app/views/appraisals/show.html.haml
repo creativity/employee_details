@@ -1,0 +1,14 @@
+%p#notice= notice
+%p
+  %b User:
+  = @appraisal.user.first_name
+%p
+  %b Date Of Joining:
+  = @appraisal.date_of_joining
+%p
+  %b Description:
+  = @appraisal.description.html_safe
+
+= link_to 'Edit', edit_appraisal_path(@appraisal), :class => "btn btn-link"
+
+
