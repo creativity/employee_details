@@ -3,13 +3,14 @@
   %head
     %title HindaviEmployee
     = stylesheet_link_tag   "application"
-    = javascript_include_tag   "jquery", "/assets/ckeditor/ckeditor", "jquery-ui", "jquery_ujs"
+    = javascript_include_tag   "jquery", "/assets/ckeditor/ckeditor", "jquery-ui", "jquery_ujs", "bootstrap"
     = csrf_meta_tags
     :javascript
       $(document).ready(function() {
         var CKEDITOR_BASEPATH = '/assets/ckeditor/';
         $("#datepicker").datepicker();
       });
+      $('.dropdown-toggle').dropdown()
     #header
     - if user_signed_in?
       - if current_user.is_admin?
@@ -33,8 +34,16 @@
           %ul
             %li
               =link_to "Log In",home_user_list_path
-            %li
-              =link_to "Attendance","#"
+            %li.dropdown
+              %a.dropdown-toggle{"data-close-others" => "false", "data-delay" => "1000", "data-toggle" => "dropdown", :href => "#"}
+                Attendance
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  %a{:href => "#", :tabindex => "-1"} Monthly Timesheet
+                %li
+                  %a{:href => "#", :tabindex => "-1"} Logout
+
             %li
               =link_to "Appraisals", new_appraisal_path
             %li

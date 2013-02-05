@@ -29,12 +29,24 @@ class User < ActiveRecord::Base
       false
     end
   end
-
+  # To set default user role
   def create_user_role
     if self.role.blank?
       id = Role.select{|role| role.role_type == $roles[:user]}.map(&:id)
       self.update_attributes(:role_id => id[0])
     end
+  end
+
+  # Getter
+  def full_name
+    [first_name, last_name].join(' ')
+  end
+
+  # Setter
+  def full_name=(name)
+    split = name.split(' ', 2)
+    self.first_name = split.first
+    self.last_name = split.last
   end
 
 end
