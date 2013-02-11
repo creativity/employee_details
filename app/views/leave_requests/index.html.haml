@@ -1,0 +1,27 @@
+%table.table.table-striped.table-bordered
+  %thead
+    %tr
+      %th User
+      %th Leave date
+      %th Leave type
+      %th Remark
+      %th Actions
+  %tbody
+    - @leave_requests.each do |leave_request|
+      %tr
+        %td= leave_request.user.full_name
+        %td= leave_request.leave_date
+        %td= leave_request.leave_type.name
+        %td= leave_request.remark
+        %td
+          .btn-group
+            %a.btn.btn-primary.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+              %i.icon-share.icon-white>
+              Action
+              %span.caret
+            %ul.dropdown-menu
+              %li= link_to 'Show', leave_request
+              %li= link_to 'Edit', leave_request_path(leave_request)
+              %li= link_to 'Destroy', leave_request, :confirm => 'Are you sure?', :method => :delete
+.form-actions
+  = link_to 'New Leave request', new_leave_request_path, :class=>"btn btn-primary"

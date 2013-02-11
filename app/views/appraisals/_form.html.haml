@@ -1,0 +1,15 @@
+= form_for(@appraisal) do |f|
+  %ul
+  - @appraisal.errors.full_messages.each do |msg|
+    %li.errors= msg
+  .field1
+    = f.label :joining_date
+    %br/
+    = f.text_field :date_of_joining, :id => "datepicker"
+  .field1
+    = f.label :description
+    %br/
+    = f.cktext_area :description
+    = f.hidden_field  :user_id, :value => current_user.id
+  .actions
+    = f.submit "Submit", :class => "btn btn-info"

@@ -1,0 +1,21 @@
+= form_for(@leave_request) do |f|
+  %ul
+  - @leave_request.errors.full_messages.each do |msg|
+    %li= msg
+  .form-inputs
+    = f.label :user_id
+    = f.text_field :user_id
+    %br/
+    = f.label :leave_date
+    = f.date_select :leave_date
+    %br/
+    = f.label :leave_type
+    = select 'leave_request', 'leave_type_id', LeaveType.find(:all).collect {|c| [c.name, c.id]}, :prompt => "Select a Leave Type"
+    %br/
+    = f.label :remark
+    = f.cktext_area :remark
+
+    = f.hidden_field :user_id, :value=>current_user.id
+  .actions{:style=>"margin-top:5px;"}
+    = f.submit "Submit",  :class => "btn btn-primary"
+

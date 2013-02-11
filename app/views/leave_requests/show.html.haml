@@ -1,0 +1,19 @@
+%p#notice= notice
+%p
+	%b User:
+	= @task.user_id
+%p
+	%b Task name:
+	= @task.task_name
+%p
+	%b Task description:
+	= @task.task_description
+%p
+	%b Start date:
+	= @task.start_date
+%p
+	%b End date:
+	= @task.end_date
+= link_to 'Edit', edit_task_path(@task)
+|
+\#{link_to 'Back', tasks_path}

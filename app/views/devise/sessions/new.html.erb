@@ -15,10 +15,10 @@
 	  <% if devise_mapping.rememberable? -%>
 	    <div style="width:200px;float:left;margin-left:100px;">
 	    	<div class="left" style="width:20px;"><%= f.check_box :remember_me %></div>
-	    	<div class="left" style="width:100px;"><%= f.label :remember_me %></div>
+	    	<div class="left" style="width:105px;"><%= f.label :remember_me %></div>
 	    </div>
 	  <% end -%>
-	  	<div class="left" style="width:100px;margin-left:100px;"><%= f.submit "Sign in" %></div>
+	  	<div class="left" style="width:100px;margin-left:100px;"><%= f.submit "Sign in", :class => "btn btn-info"%></div>
 	<% end %>
 
 	<div class="left" style="width:200px;margin-left:100px;">
