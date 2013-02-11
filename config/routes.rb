@@ -12,18 +12,28 @@ HindaviEmployee::Application.routes.draw do
 
   get "home/status"
 
-  resources :leaves
+  get "home/user_punch_in"
 
+  get "home/user_punch_out"
+
+  match '/leave_requests/users' => "autocomplete#users"
+
+  resources :leaves
 
   resources :messages
 
-
   resources :salary_details
-
 
   resources :tasks
 
   resources :appraisals
+
+  resources :events
+
+  resources :leave_requests
+
+  resources :leave_types
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

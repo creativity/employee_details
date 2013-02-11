@@ -1,10 +1,10 @@
 class HomeController < ApplicationController
 
   def index
-     @role = current_user.role
-     if @role.role_type =="Admin"
-       redirect_to home_admin_index_path
-    end		
+    @role = current_user.role
+    if @role.role_type =="admin"
+      redirect_to home_admin_index_path
+    end
   end
 
   def admin_index
@@ -39,7 +39,29 @@ class HomeController < ApplicationController
        @lsitofuser=Appraisal.group(:user_id)
   end  
 
+  def user_punch_in
+    @login_detail = LoginDetail.new
+    @login_detail.user_id = current_user.id
+    @login_detail.punch_in = Time.now
+    @login_detail.status = params[:status]
+     respond_to do |format|
+      if @login_detail.save
+        format.html
+        format.js
+      end
+    end
+  end
 
-
+  def user_punch_out
+    p params
+    @login_detail = LoginDetail.find_by_user_id(current_user.id)
+    @login_detail.update_attributes(:punch_out => Time.now, :status => false)
+    p @login_detail
+    p 'hgurdtghr ruhtgiurhtg rith rhtgurt'
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
 
 end # Controller ends
