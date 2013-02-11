@@ -35,4 +35,6 @@ gem 'recaptcha', :require => 'recaptcha/rails'
 
 gem 'rack' , '1.4.1'
 
+gem 'rqrcode-rails3'
 
+gem 'mini_magick'
