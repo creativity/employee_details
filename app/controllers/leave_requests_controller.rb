@@ -20,7 +20,7 @@ class LeaveRequestsController < ApplicationController
     @leave_request = LeaveRequest.new(params[:leave_request])
     respond_to do |format|
       if @leave_request.save
-        format.html { redirect_to @leave_request, notice: 'leave_request was successfully created.' }
+        format.html { redirect_to @leave_request, notice: 'Leave Request was successfully created.' }
       else
         format.html { render action: "new" }
       end
@@ -31,7 +31,7 @@ class LeaveRequestsController < ApplicationController
     @leave_request = LeaveRequest.find(params[:id])
     respond_to do |format|
       if @leave_request.update_attributes(params[:leave_request])
-        format.html { redirect_to @leave_request, notice: 'leave_request was successfully updated.' }
+        format.html { redirect_to @leave_request, notice: 'Leave Request was successfully updated.' }
       else
         format.html { render action: "edit" }
       end
@@ -39,13 +39,14 @@ class LeaveRequestsController < ApplicationController
   end
 
   def users
-    if params[:name]
-      like= "%".concat(params[:name].concat("%"))
-      users = User.where("name like ?", like)
+    if params[:term]
+      p params[:term]
+      like= "%".concat(params[:term].concat("%"))
+      users = User.where("username like ?", like)
     else
       users = User.all
     end
-    list = users.map {|u| Hash[ id: u.id, label: u.name, name: u.first_name]}
+    list = users.map {|u| Hash[ id: u.id, label: u.username, name: u.username]}
     render json: list
   end
 

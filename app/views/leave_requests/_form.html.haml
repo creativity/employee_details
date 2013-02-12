@@ -3,8 +3,8 @@
   - @leave_request.errors.full_messages.each do |msg|
     %li= msg
   .form-inputs
-    = f.label :user_id
-    = f.text_field :user_id
+    = f.label :user_name
+    = f.text_field :user_name
     %br/
     = f.label :leave_date
     = f.date_select :leave_date

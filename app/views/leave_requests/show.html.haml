@@ -1,19 +1,14 @@
 %p#notice= notice
 %p
-	%b User:
-	= @task.user_id
+  %b User:
+  = @leave_request.user_id
 %p
-	%b Task name:
-	= @task.task_name
+  %b Task name:
+  = @leave_request.leave_date
 %p
-	%b Task description:
-	= @task.task_description
-%p
-	%b Start date:
-	= @task.start_date
-%p
-	%b End date:
-	= @task.end_date
-= link_to 'Edit', edit_task_path(@task)
-|
-\#{link_to 'Back', tasks_path}
+  %b Task description:
+  = @leave_request.remark.html_safe
+
+.form-actions
+  = edit_button(@leave_request)
+  = destroy_button(@leave_request)
