@@ -12,6 +12,12 @@ HindaviEmployee::Application.routes.draw do
 
   get "home/status"
 
+  get "home/qrcode"
+
+  get "home/list_appraisal"
+  
+  resources :leaves
+
   get "home/user_punch_in"
 
   get "home/user_punch_out"
