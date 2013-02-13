@@ -1,0 +1,144 @@
+.row
+  .span12
+    .row
+      .span6
+        %h4 User
+        = @salary.user.full_name
+        %br
+        %h4 Target Year
+        = @salary.target_year
+        %br
+        %h4 Working Days
+        = @salary.working_days
+        %br
+        %h4  Travel Expenses
+        &#8377
+        = @salary.travel_expense
+        %br
+        %h4  Others
+        &#8377
+        = @salary.others
+        %br
+        %h4 Total Payable
+        &#8377
+        = @salary.total_payable
+        %br
+      .span6
+        %h4 Day Rate
+        &#8377
+        = @salary.dayrate
+        %br
+        %h4 Target Month
+        = monthname(@salary.target_month)
+        %br
+        %h4 Basic Salary
+        &#8377
+        = @salary.basic_salary
+        %br
+        %h4  Cash Advance
+        &#8377
+        = @salary.cash_advance
+        %br
+        %h4 Other Deduction
+        &#8377
+        = @salary.other_deduction
+        %br
+        %h4 Net Payable
+        &#8377
+        = @salary.net_payable
+        %br
+    %h3= @date
+    %table.table.table-bordered.table-striped
+      %tr
+        %th 1
+        %th 2
+        %th 3
+        %th 4
+        %th 5
+        %th 6
+        %th 7
+        %th 8
+        %th 9
+        %th 10
+        %th 11
+        %th 12
+        %th 13
+        %th 14
+      %tr
+        %td= boolean_image(@salary.target_day_1)
+        %td= boolean_image(@salary.target_day_2)
+        %td= boolean_image(@salary.target_day_3)
+        %td= boolean_image(@salary.target_day_4)
+        %td= boolean_image(@salary.target_day_5)
+        %td= boolean_image(@salary.target_day_6)
+        %td= boolean_image(@salary.target_day_7)
+        %td= boolean_image(@salary.target_day_8)
+        %td= boolean_image(@salary.target_day_9)
+        %td= boolean_image(@salary.target_day_10)
+        %td= boolean_image(@salary.target_day_11)
+        %td= boolean_image(@salary.target_day_12)
+        %td= boolean_image(@salary.target_day_13)
+        %td= boolean_image(@salary.target_day_14)
+      %tr
+        %th 15
+        %th 16
+        %th 17
+        %th 18
+        %th 19
+        %th 20
+        %th 21
+        %th 22
+        %th 23
+        %th 24
+        %th 25
+        %th 26
+        %th 27
+        %th 28
+      %tr
+        %td= boolean_image(@salary.target_day_15)
+        %td= boolean_image(@salary.target_day_16)
+        %td= boolean_image(@salary.target_day_17)
+        %td= boolean_image(@salary.target_day_18)
+        %td= boolean_image(@salary.target_day_19)
+        %td= boolean_image(@salary.target_day_20)
+        %td= boolean_image(@salary.target_day_21)
+        %td= boolean_image(@salary.target_day_22)
+        %td= boolean_image(@salary.target_day_23)
+        %td= boolean_image(@salary.target_day_24)
+        %td= boolean_image(@salary.target_day_25)
+        %td= boolean_image(@salary.target_day_26)
+        %td= boolean_image(@salary.target_day_27)
+        %td= boolean_image(@salary.target_day_28)
+      %tr
+        %th 29
+        %th 30
+        %th 31
+        %th -
+        %th -
+        %th -
+        %th -
+        %th -
+        %th -
+        %th -
+        %th -
+        %th -
+        %th -
+        %th -
+      %tr
+        %td= boolean_image(@salary.target_day_29)
+        %td= boolean_image(@salary.target_day_30)
+        %td= boolean_image(@salary.target_day_31)
+        %td -
+        %td -
+        %td -
+        %td -
+        %td -
+        %td -
+        %td -
+        %td -
+        %td -
+        %td -
+        %td -
+    .form-actions
+      = edit_button(@salary)
+      = destroy_button(@salary)

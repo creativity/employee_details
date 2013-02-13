@@ -12,7 +12,7 @@
         %td= leave_request.user.full_name
         %td= leave_request.leave_date
         %td= leave_request.leave_type.name
-        %td= leave_request.remark
+        %td= leave_request.remark.html_safe
         %td
           .btn-group
             %a.btn.btn-primary.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}

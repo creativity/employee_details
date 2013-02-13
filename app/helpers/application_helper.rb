@@ -54,4 +54,18 @@ module ApplicationHelper
     end
   end
 
+  def boolean_image(arg)
+    if arg == true
+      content_tag(:i, "", :class => "icon-ok")
+    else
+      content_tag(:i, "", :class => "icon-remove")
+    end
+  end
+
+  def monthname(monthnumber)
+    if monthnumber
+      Date::MONTHNAMES[monthnumber]
+    end
+  end
+
 end

@@ -35,21 +35,13 @@ gem 'recaptcha', :require => 'recaptcha/rails'
 
 gem 'rack' , '1.4.1'
 
-
 gem 'rqrcode-rails3'
 
 gem 'fullcalendar-rails'
 
 gem "kaminari", "~> 0.13.0"
 
-#gem "simple_form"
-
 gem 'psych'
 
-#gem 'country_select'
-
-#gem 'inherited_resources'
-
-#gem 'show_for', :git => 'https://github.com/plataformatec/show_for.git'
 
 gem 'mini_magick'

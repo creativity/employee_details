@@ -1,7 +1,7 @@
 class LeaveRequest < ActiveRecord::Base
   belongs_to :user
   belongs_to :leave_type
-  attr_accessible :leave_date, :remark, :user_id, :leave_type_id
+  attr_accessible :leave_date, :remark, :user_id, :leave_type_id, :user_name
   attr_accessor :user_name
 
   def user_name=(name)

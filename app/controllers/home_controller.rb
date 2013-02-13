@@ -1,17 +1,10 @@
 class HomeController < ApplicationController
 
   def index
-<<<<<<< HEAD
      @role = current_user.role
      if @role.role_type =="Admin" 
        redirect_to home_admin_index_path
     end		
-=======
-    @role = current_user.role
-    if @role.role_type =="admin"
-      redirect_to home_admin_index_path
-    end
->>>>>>> 2ce3e84a2c51386f9c3137d7c58d70b6d0c4e226
   end
 
   def admin_index

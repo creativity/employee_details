@@ -3,7 +3,7 @@
   %head
     %title HindaviEmployee
     = stylesheet_link_tag   "application"
-    = javascript_include_tag   "jquery", "/assets/ckeditor/ckeditor", "jquery-ui", "jquery_ujs", "bootstrap", "common", "fullcalendar", "fullcalendar"
+    = javascript_include_tag   "jquery", "/assets/ckeditor/ckeditor", "jquery-ui", "jquery_ujs","/assets/twitter/bootstrap", "bootstrap", "common", "fullcalendar", "jquery-ui-1.9.2.custom", "jquery-ui-1.9.2.custom.min"
     = csrf_meta_tags
     :javascript
       $(document).ready(function() {
@@ -11,9 +11,16 @@
         $("#datepicker").datepicker();
         $('#calendar').fullCalendar({
         })
+
+        return $('#leave_request_user_name').autocomplete({
+          source: '/leave_requests/users',
+          select: function(event, ui) {
+            alert(1)
+            return $("#leave_request_user_id").val(ui.item.id);
+          }
+        });
       });
       $('.dropdown-toggle').dropdown();
-      $('#leave_request_user').autocomplete({source: "/leave_requests/users"})
     #header
     - if user_signed_in?
       - if current_user.is_admin?
@@ -29,15 +36,11 @@
               %ul.dropdown-menu
                 %li= link_to "Leave", "/leave_requests"
             %li
-<<<<<<< HEAD
               =link_to "Attendance","#"
             %li
               =link_to "Apraisals",home_list_appraisal_path
-=======
-              =link_to "Appraisal","#"
->>>>>>> 2ce3e84a2c51386f9c3137d7c58d70b6d0c4e226
             %li
-              =link_to "Leaves","#"
+              =link_to "Salaries", "/salaries"
             %li
               =link_to "Events","#"
       - else
@@ -80,6 +83,10 @@
       #main
         = yield
     #footer
+      #back-to-top{:style => "position:fixed;right:35px;bottom:35px"}
+        %a{:href => "#"}
+          %i.icon-arrow-up>
+          Back to top
       = "copy right @hindavi.in"
 			
 

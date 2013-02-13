@@ -12,20 +12,17 @@ HindaviEmployee::Application.routes.draw do
 
   get "home/status"
 
-<<<<<<< HEAD
-
   get "home/qrcode"
 
   get "home/list_appraisal"
   
   resources :leaves
-=======
+
   get "home/user_punch_in"
->>>>>>> 2ce3e84a2c51386f9c3137d7c58d70b6d0c4e226
 
   get "home/user_punch_out"
 
-  match '/leave_requests/users' => "autocomplete#users"
+  match '/leave_requests/users' => "leave_requests#users"
 
   resources :leaves
 
@@ -42,6 +39,8 @@ HindaviEmployee::Application.routes.draw do
   resources :leave_requests
 
   resources :leave_types
+
+  resources :salaries
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

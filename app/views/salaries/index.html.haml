@@ -1,0 +1,87 @@
+%h1{:align => "center"}
+  = link_to "<<", {:month => (@date.beginning_of_month-366).strftime("%Y-%m-01")}, {:rel => "tooltip", :title => "Previous Year"}
+  = link_to "<", {:month => (@date.beginning_of_month-1).strftime("%Y-%m-01")}, {:rel => "tooltip", :title => "Previous Month"}
+  = link_to "#{@date.strftime("%B %Y")}", {:month => (Date.today).strftime("%Y-%m-01")}, {:rel => "tooltip", :title => "Go to today"}
+  = link_to ">", {:month => (@date.end_of_month+1).strftime("%Y-%m-01")}, {:rel => "tooltip", :title => "Next Month"}
+  = link_to ">>", {:month => (@date.end_of_month+366).strftime("%Y-%m-01")}, {:rel => "tooltip", :title => "Next Year"}
+%h3{:align => "center"}
+  Calendar -
+  \#{link_to "Timeline", salaries_path}
+%br/
+%table.table.table-striped.table-bordered{:style => "width:99%;"}
+  %tr
+    %th ID
+    %th Person
+    %th Dayrate
+    %th Working days
+    %th Basic salary
+    %th Travel expense
+    %th Others
+    %th Total payable
+    %th Cash advance
+    %th Other decuction
+    %th Net payable
+    - @month_dates.each do |date|
+      %th= date
+  - @salaries.each do |salary|
+    %tr
+      %td= salary.id
+      %td= link_to salary.user.full_name, salary
+      %td
+        &#8377
+        = salary.dayrate
+      %td= salary.working_days
+      %td
+        &#8377
+        = salary.basic_salary
+      %td
+        &#8377
+        = salary.travel_expense
+      %td
+        &#8377
+        = salary.others
+      %td
+        &#8377
+        = salary.total_payable
+      %td
+        &#8377
+        = salary.cash_advance
+      %td
+        &#8377
+        = salary.other_deduction
+      %td
+        &#8377
+        = salary.net_payable
+      %td= boolean_image(salary.target_day_1)
+      %td= boolean_image(salary.target_day_2)
+      %td= boolean_image(salary.target_day_3)
+      %td= boolean_image(salary.target_day_4)
+      %td= boolean_image(salary.target_day_5)
+      %td= boolean_image(salary.target_day_6)
+      %td= boolean_image(salary.target_day_7)
+      %td= boolean_image(salary.target_day_8)
+      %td= boolean_image(salary.target_day_9)
+      %td= boolean_image(salary.target_day_10)
+      %td= boolean_image(salary.target_day_11)
+      %td= boolean_image(salary.target_day_12)
+      %td= boolean_image(salary.target_day_13)
+      %td= boolean_image(salary.target_day_14)
+      %td= boolean_image(salary.target_day_15)
+      %td= boolean_image(salary.target_day_16)
+      %td= boolean_image(salary.target_day_17)
+      %td= boolean_image(salary.target_day_18)
+      %td= boolean_image(salary.target_day_19)
+      %td= boolean_image(salary.target_day_20)
+      %td= boolean_image(salary.target_day_21)
+      %td= boolean_image(salary.target_day_22)
+      %td= boolean_image(salary.target_day_23)
+      %td= boolean_image(salary.target_day_24)
+      %td= boolean_image(salary.target_day_25)
+      %td= boolean_image(salary.target_day_26)
+      %td= boolean_image(salary.target_day_27)
+      %td= boolean_image(salary.target_day_28)
+      %td= boolean_image(salary.target_day_29)
+      %td= boolean_image(salary.target_day_30)
+      %td= boolean_image(salary.target_day_31)
+.form-actions
+  = link_to 'New Salary', new_salary_path, :class=>"btn btn-primary"
