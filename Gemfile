@@ -35,9 +35,9 @@ gem 'recaptcha', :require => 'recaptcha/rails'
 
 gem 'rack' , '1.4.1'
 
-<<<<<<< HEAD
+
 gem 'rqrcode-rails3'
-=======
+
 gem 'fullcalendar-rails'
 
 gem "kaminari", "~> 0.13.0"
@@ -51,7 +51,5 @@ gem 'psych'
 #gem 'inherited_resources'
 
 #gem 'show_for', :git => 'https://github.com/plataformatec/show_for.git'
-
->>>>>>> 2ce3e84a2c51386f9c3137d7c58d70b6d0c4e226
 
 gem 'mini_magick'
