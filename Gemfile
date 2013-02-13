@@ -43,4 +43,5 @@ gem "kaminari", "~> 0.13.0"
 
 gem 'psych'
 
+
 gem 'mini_magick'
