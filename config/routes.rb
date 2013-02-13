@@ -40,7 +40,7 @@ HindaviEmployee::Application.routes.draw do
 
   resources :leave_types
 
-  resources  :salaries
+  resources :salaries
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

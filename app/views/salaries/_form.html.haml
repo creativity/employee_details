@@ -1,0 +1,178 @@
+= form_for(@salary, :html => {:class => 'form-horizontal' }) do |f|
+  %ul
+  - @salary.errors.full_messages.each do |msg|
+    %li.errors= msg
+  .row
+    .span12
+      .row
+        .span6
+          .control-group
+            %label.control-label{:for => "TargetYear"} * Target Year
+            .controls
+              = f.select :target_year, (2000..Time.now.year).to_a, :prompt => "Select year"
+          .control-group
+            %label.control-label{:for => "User"} * User
+            .controls
+              = select 'salary', 'user_id', User.find(:all).collect {|c| [c.username, c.id]}, :prompt => "Select a User"
+          .control-group
+            %label.control-label{:for => " WorkingDays"} Working days
+            .controls
+              = f.text_field :working_days
+          .control-group
+            %label.control-label{:for => "BasicSalary"} * Basic salary
+            .controls
+              = f.text_field :basic_salary
+          .control-group
+            %label.control-label{:for => "TravelExpense"} Travel expense
+            .controls
+              = f.text_field :travel_expense
+          .control-group
+            %label.control-label{:for => "Others"} Others
+            .controls
+              = f.text_field :others
+          .control-group
+            %label.control-label{:for => "TotalPayable"} Total payable
+            .controls
+              = f.text_field :total_payable
+        .span6
+          .control-group
+            %label.control-label{:for => "inputEmail"} * Target month
+            .controls
+              = f.select :target_month, Salary::MONTHS, :prompt => "Select Month"
+          .control-group
+            %label.control-label{:for => "DayRate"} * Dayrate
+            .controls
+              = f.text_field :dayrate
+          .control-group
+            %label.control-label{:for => "CashAdvance"} Cash advance
+            .controls
+              = f.text_field :cash_advance
+          .control-group
+            %label.control-label{:for => "OtherDeduction"} Other deduction
+            .controls
+              = f.text_field :other_deduction
+          .control-group
+            %label.control-label{:for => "NetPayable"} Net payable
+            .controls
+              = f.text_field :net_payable
+  .form-actions
+    = f.button :submit, :class => "btn btn-primary", :disable_with => 'Please wait ...'
+  %table.table.table-bordered.table-condensed
+    %tr
+      %td 1
+      %td 2
+      %td 3
+      %td 4
+      %td 5
+      %td 6
+      %td 7
+    %tr
+      %td= f.check_box :target_day_1, :label => false
+      %td= f.check_box :target_day_2, :label => false
+      %td= f.check_box :target_day_3, :label => false
+      %td= f.check_box :target_day_4, :label => false
+      %td= f.check_box :target_day_5, :label => false
+      %td= f.check_box :target_day_6, :label => false
+      %td= f.check_box :target_day_7, :label => false
+    %tr
+      %td 8
+      %td 9
+      %td 10
+      %td 11
+      %td 12
+      %td 13
+      %td 14
+      %td 15
+    %tr
+      %td= f.check_box :target_day_8, :label => false
+      %td= f.check_box :target_day_9, :label => false
+      %td= f.check_box :target_day_10, :label => false
+      %td= f.check_box :target_day_11, :label => false
+      %td= f.check_box :target_day_12, :label => false
+      %td= f.check_box :target_day_13, :label => false
+      %td= f.check_box :target_day_14, :label => false
+      %td= f.check_box :target_day_15, :label => false
+    %tr
+      %td 16
+      %td 17
+      %td 18
+      %td 19
+      %td 20
+      %td 21
+      %td 22
+    %tr
+    %tr
+      %td= f.check_box :target_day_16, :label => false
+      %td= f.check_box :target_day_17, :label => false
+      %td= f.check_box :target_day_18, :label => false
+      %td= f.check_box :target_day_19, :label => false
+      %td= f.check_box :target_day_20, :label => false
+      %td= f.check_box :target_day_21, :label => false
+      %td= f.check_box :target_day_22, :label => false
+    %tr
+      %td 23
+      %td 24
+      %td 25
+      %td 26
+      %td 27
+      %td 28
+      %td 29
+      %td 30
+    %tr
+      %td= f.check_box :target_day_23, :label => false
+      %td= f.check_box :target_day_24, :label => false
+      %td= f.check_box :target_day_25, :label => false
+      %td= f.check_box :target_day_26, :label => false
+      %td= f.check_box :target_day_27, :label => false
+      %td= f.check_box :target_day_28, :label => false
+      %td= f.check_box :target_day_29, :label => false
+      %td= f.check_box :target_day_30, :label => false
+    %tr
+      %td 31
+
+:javascript
+  (function() {
+    var calculateBasicSalary, calculateTotalPayable, countChecked;
+
+    countChecked = function() {
+      var n;
+      n = $("input:checked").length;
+      return $("#salary_working_days").val(n);
+    };
+
+    countChecked();
+
+    $(":checkbox").click(countChecked);
+
+    calculateBasicSalary = function() {
+      var dayrate, salary, working_days;
+      dayrate = $("#salary_dayrate").val();
+      working_days = $("#salary_working_days").val();
+      salary = parseInt(dayrate, 10) * parseInt(working_days, 10);
+      return $("#salary_basic_salary").val(salary);
+    };
+
+    calculateBasicSalary();
+
+    $(":checkbox").click(calculateBasicSalary);
+
+    calculateTotalPayable = function() {
+      var deduction_cash_advance, deduction_other, net_payables, payable, payable_other, payable_salary, payable_travel_expenses, total_payables;
+      payable_salary = $("#salary_basic_salary").val();
+      payable_travel_expenses = $("#salary_travel_expense").val();
+      payable_other = $("#salary_others").val();
+      payable = parseInt(payable_travel_expenses, 10) + parseInt(payable_other, 10);
+      total_payables = parseInt(payable_salary, 10) + parseInt(payable, 10);
+      deduction_cash_advance = $("#salary_cash_advance").val();
+      deduction_other = $("#salary_other_deduction").val();
+      net_payables = total_payables - parseInt(deduction_cash_advance, 10) - parseInt(deduction_other, 10);
+      $("#salary_total_payable").val(total_payables);
+      return $("#salary_net_payable").val(net_payables);
+    };
+
+    calculateTotalPayable();
+
+    $(".form-horizontal input").blur(calculateTotalPayable);
+
+  }).call(this);
+
