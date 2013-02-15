@@ -15,7 +15,6 @@
         return $('#leave_request_user_name').autocomplete({
           source: '/leave_requests/users',
           select: function(event, ui) {
-            alert(1)
             return $("#leave_request_user_id").val(ui.item.id);
           }
         });
