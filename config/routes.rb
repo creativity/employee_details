@@ -26,6 +26,7 @@ HindaviEmployee::Application.routes.draw do
  
 
     get "home/monthly_timesheet"
+    get "home/monthly_time_detail"
 
   resources :leaves
 

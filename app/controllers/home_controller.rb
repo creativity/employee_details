@@ -67,6 +67,7 @@ class HomeController < ApplicationController
 
          respond_to do |format|
           if @login_detail.save
+             @login_detail.update_attributes(:month=>@login_detail.created_at.strftime("%B"))
             format.html
             format.js
           end
@@ -84,10 +85,10 @@ class HomeController < ApplicationController
 
     @login_detail.update_attributes(:punch_out => Time.now, :status => false)
 
+   # Here we are fetching time diff using time diff gem and updating loghrs with time duration.
     @diff = Time.diff(@login_detail.punch_in.to_s, @login_detail.punch_out.to_s, '%H %N %S')
     @login_detail.update_attributes(:loghrs => @diff[:diff])
-    p ">>>>>>>>>>>"
-    p @diff[:diff]
+    
     respond_to do |format|
       format.html
       format.js
@@ -101,9 +102,10 @@ class HomeController < ApplicationController
  end 
 
  def monthly_time_detail
-   
 
-
+ 
+ @userslog = LoginDetail.find(:all,:conditions=>["user_id=? and month = ? ",current_user.id,params[:month] ])
+ 
   render :monthly_time_detail do |month|
     month.replace_html 'timesheet',:partial=>'home/month_time_detail',:object=>@monthlydetails,:layout=>false
   end  

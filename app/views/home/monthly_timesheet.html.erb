@@ -1,4 +1,17 @@
-<%= select_tag "months" ,options_from_collection_for_select(@months=Month.all,"id","name")%>
+
+<script>
+$(function(){
+
+$("#months").change(function(){
+
+  $.ajax({url:'<%= url_for :action=>'monthly_time_detail'%>',data: 'month='+this.value,dataType:'script'})	
+
+});
+});
+
+</script>
+
+<%= select_tag "months" ,options_from_collection_for_select(@months=Month.all,"name","name")%>
 
 <div id="timesheet">
 

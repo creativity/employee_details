@@ -1,0 +1,20 @@
+
+<table>
+	<tr>
+		 <th>Month</th>
+		 <th>Date</th>
+		 <th>Log our</th>
+	 	 <th></th>
+	 	 <th></th>
+	</tr>
+<% @userslog.each do |ulog|%>
+<tr>
+    <td><%= ulog.punch_in.strftime('%B')%></td>	
+    <td><%= ulog.punch_in.strftime('%d - %m - %y')%></td>	
+    <td><%= ulog.loghrs%></td>	
+    <td></td>	
+</tr>
+
+<% end if @userslog %>
+
+</table>
