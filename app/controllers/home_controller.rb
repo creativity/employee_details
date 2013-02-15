@@ -86,8 +86,10 @@ class HomeController < ApplicationController
     @login_detail.update_attributes(:punch_out => Time.now, :status => false)
 
    # Here we are fetching time diff using time diff gem and updating loghrs with time duration.
-    @diff = Time.diff(@login_detail.punch_in.to_s, @login_detail.punch_out.to_s, '%H %N %S')
-    @login_detail.update_attributes(:loghrs => @diff[:diff])
+     @diffintime = Time.diff(@login_detail.punch_in.to_s, @login_detail.punch_out.to_s, '%H %N %S')
+     @diff = (Time.parse(@login_detail.punch_out.to_s) - Time.parse(@login_detail.punch_in.to_s))/3600
+    
+     @login_detail.update_attributes(:loghrs => @diff,:timelog=>@diffintime[:diff])
     
     respond_to do |format|
       format.html

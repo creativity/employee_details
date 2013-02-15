@@ -1,5 +1,5 @@
 class LoginDetail < ActiveRecord::Base
-  attr_accessible :user_id, :punch_in, :punch_out,  :status,:final_punchin,:loghrs,:month
+  attr_accessible :user_id, :punch_in, :punch_out,  :status,:final_punchin,:loghrs,:month,:timelog
   # Associations ------------------------------------------------------------------------
   belongs_to  :user
 
