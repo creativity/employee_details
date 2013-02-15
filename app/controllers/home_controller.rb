@@ -99,14 +99,16 @@ class HomeController < ApplicationController
   end # def punch out ends.
 
 
+ # This def is to show dropdown for months.
  def monthly_timesheet
-
+   
  end 
 
- def monthly_time_detail
 
- 
- @userslog = LoginDetail.find(:all,:conditions=>["user_id=? and month = ? ",current_user.id,params[:month] ])
+# This def is to show all log hours for a month selected by users along with total hrs loged.
+
+ def monthly_time_detail
+   @userslog = LoginDetail.find(:all,:conditions=>["user_id=? and month = ? ",current_user.id,params[:month] ])
  
   render :monthly_time_detail do |month|
     month.replace_html 'timesheet',:partial=>'home/month_time_detail',:object=>@monthlydetails,:layout=>false
@@ -116,19 +118,15 @@ class HomeController < ApplicationController
 
 
 
+def newuser_sign_up
 
+end
 
-
-
-
-
-
-
-
-
-
-
-
+def create_user
+    @user = User.new(:email => params[:email], :password => params[:password],:password_confirmation=>params[:password_confirmation],:username=>params[:username],:first_name=>params[:first_name],:last_name=>params[:last_name])
+    @user.save
+    redirect_to home_user_list_path
+end
 
 
 

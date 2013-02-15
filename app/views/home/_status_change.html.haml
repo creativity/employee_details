@@ -15,3 +15,6 @@
 				%td=	link_to "Activate User",home_status_path(:activate_id=>u.id),:remote=>"true"
 			//%td= u.teams[0].team_name if !u.teams[0].team_name.nil?
 			//%td= u.addresses[0].address1 if !u.addresses[0].address1.nil?
+
+
+=link_to "Add User",home_newuser_sign_up_path
