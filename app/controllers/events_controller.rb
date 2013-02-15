@@ -23,9 +23,10 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(params[:event])
+    @events= Event.all
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to events_path, notice: 'Event was successfully created.' }
       else
         format.html { render action: "new" }
       end

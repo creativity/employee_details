@@ -23,6 +23,9 @@ HindaviEmployee::Application.routes.draw do
   get "home/user_punch_out"
 
   match '/leave_requests/users' => "leave_requests#users"
+ 
+
+    get "home/monthly_timesheet"
 
   resources :leaves
 

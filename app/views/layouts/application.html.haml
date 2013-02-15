@@ -41,28 +41,33 @@
               =link_to "Apraisals",home_list_appraisal_path
             %li
               =link_to "Salaries", "/salaries"
+            %li.dropdown
+              %a.dropdown-toggle{"data-close-others" => "false", "data-delay" => "1000", "data-toggle" => "dropdown", :href => "#"}
+                Events
+                %b.caret
+              %ul.dropdown-menu{:style=>"margin-top:5px;"}
+                %li
+                  =link_to "Add Event", new_event_path
+                %li
+                  =link_to "View Events", events_path
             %li
-              =link_to "Events","#"
+              =link_to "Home",home_admin_index_path
       - else
         #navbar
           %ul
-            %li
-              =link_to "Log In",home_user_list_path
             %li.dropdown
               %a.dropdown-toggle{"data-close-others" => "false", "data-delay" => "1000", "data-toggle" => "dropdown", :href => "#"}
                 Attendance
                 %b.caret
               %ul.dropdown-menu{:style=>"margin-top:5px;"}
                 %li
-                  %a{:href => "#", :tabindex => "-1"} Monthly Timesheet
+                  =link_to "Monthly timesheet",home_monthly_timesheet_path
                 %li#punch-in
                   =link_to "Punch In", home_user_punch_in_path(:status => true) , :remote => true,  :onClick=>"change_display();"
                 %li#punch-out
                   =link_to "Punch Out", home_user_punch_out_path(:status => false), :remote => true,  :onClick=>"change_display1();"
             %li
               =link_to "Appraisals", new_appraisal_path
-            %li
-              =link_to "Employee Details","#"
             %li.dropdown
               %a.dropdown-toggle{"data-close-others" => "false", "data-delay" => "1000", "data-toggle" => "dropdown", :href => "#"}
                 Events
@@ -70,10 +75,10 @@
               %ul.dropdown-menu{:style=>"margin-top:5px;"}
                 %li
                   =link_to "View Event", events_path
-                %li
-                  =link_to "Add Event", new_event_path
             %li
               =link_to "Salary Slip","#"
+            %li
+              =link_to "Home",home_index_path
           %body
       .sign-out
         = current_user.full_name

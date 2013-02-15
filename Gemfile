@@ -43,5 +43,6 @@ gem "kaminari", "~> 0.13.0"
 
 gem 'psych'
 
+gem "time_diff", "~> 0.3.0"
 
 gem 'mini_magick'
