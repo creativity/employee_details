@@ -20,7 +20,7 @@
               Action
               %span.caret
             %ul.dropdown-menu
-              %li= link_to 'Show', leave_request
+              %li= link_to 'Show', leave_request, :remote => true, :"data-replace" => '#main'
               %li= link_to 'Edit', leave_request_path(leave_request)
               %li= link_to 'Destroy', leave_request, :confirm => 'Are you sure?', :method => :delete
 .form-actions
