@@ -20,3 +20,14 @@ open("#{Rails.root}/public/month.txt") do |month|
 	end	
 end	
 
+
+Language.delete_all
+
+open("#{Rails.root}/public/mother_tounge.txt") do |language|
+   language.read.each_line do |l|
+   	 lang=l.chomp
+      Language.create!(:language_name=>lang)
+   end
+
+end	
+

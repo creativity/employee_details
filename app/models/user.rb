@@ -9,6 +9,20 @@ class User < ActiveRecord::Base
   has_one :appraisal
   has_many  :login_details
   has_many  :leave_requests
+
+  has_many :userlanguages
+  has_many :languages,:through=>:userlanguages
+
+  has_one :personal_info
+  has_many :family_details
+  has_many :education_details
+  has_many :certificate_informations
+  has_many :previous_work_exps
+  has_one :professioanl_achivment
+  has_many :proffesional_refs
+  has_one :additional_info 
+
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
