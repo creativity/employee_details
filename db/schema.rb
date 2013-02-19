@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130212122848) do
+ActiveRecord::Schema.define(:version => 20130219063218) do
+
+  create_table "additional_infos", :force => true do |t|
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "addresses", :force => true do |t|
     t.string   "city"
@@ -45,6 +52,28 @@ ActiveRecord::Schema.define(:version => 20130212122848) do
     t.datetime "updated_at",    :null => false
   end
 
+  create_table "certificate_informations", :force => true do |t|
+    t.string   "course"
+    t.string   "institute"
+    t.string   "duration"
+    t.string   "grade"
+    t.date     "year"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "education_details", :force => true do |t|
+    t.string   "degree"
+    t.string   "institute"
+    t.string   "university"
+    t.float    "percenrtage"
+    t.date     "year_of_passing"
+    t.integer  "user_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
   create_table "events", :force => true do |t|
     t.string   "title"
     t.string   "url"
@@ -54,6 +83,17 @@ ActiveRecord::Schema.define(:version => 20130212122848) do
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
     t.text     "description"
+  end
+
+  create_table "family_details", :force => true do |t|
+    t.string   "name"
+    t.string   "relationship"
+    t.string   "occupation"
+    t.string   "contact_info"
+    t.string   "age"
+    t.integer  "user_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "leave_requests", :force => true do |t|
@@ -84,8 +124,15 @@ ActiveRecord::Schema.define(:version => 20130212122848) do
     t.datetime "punch_in"
     t.datetime "punch_out"
     t.boolean  "status"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.datetime "final_punch_in"
+    t.datetime "break_in"
+    t.datetime "break_out"
+    t.datetime "final_punchin"
+    t.string   "loghrs"
+    t.string   "month"
+    t.string   "timelog"
   end
 
   create_table "messages", :force => true do |t|
@@ -93,6 +140,61 @@ ActiveRecord::Schema.define(:version => 20130212122848) do
     t.string   "subject"
     t.integer  "message_from"
     t.integer  "message_to"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "months", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "personal_infos", :force => true do |t|
+    t.string   "preffer_name"
+    t.text     "present_address"
+    t.text     "permanant_address"
+    t.string   "mobile_no"
+    t.string   "residance_no"
+    t.date     "date_of_birth"
+    t.string   "place_of_birth"
+    t.string   "gender"
+    t.string   "blood_group"
+    t.string   "passport_no"
+    t.string   "place_of_issue"
+    t.string   "date_of_issue"
+    t.date     "valid_till"
+    t.string   "hobbies"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.integer  "user_id"
+  end
+
+  create_table "previous_work_exps", :force => true do |t|
+    t.string   "organisation"
+    t.string   "duration"
+    t.string   "department"
+    t.string   "designation"
+    t.text     "reason_to_leave"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.integer  "user_id"
+  end
+
+  create_table "professioanl_achivments", :force => true do |t|
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "proffesional_refs", :force => true do |t|
+    t.string   "name"
+    t.string   "contact_no"
+    t.string   "organisation"
+    t.string   "department"
+    t.string   "designation"
+    t.integer  "user_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
@@ -108,6 +210,13 @@ ActiveRecord::Schema.define(:version => 20130212122848) do
 
   create_table "roles", :force => true do |t|
     t.string   "role_type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "roles_users", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "role_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -219,10 +328,10 @@ ActiveRecord::Schema.define(:version => 20130212122848) do
     t.string   "role"
     t.string   "status"
     t.string   "username"
-    t.integer  "role_id"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "middle_name"
+    t.integer  "role_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

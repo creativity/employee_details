@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  degree: MyString
+  institute: MyString
+  university: MyString
+  percenrtage: 1.5
+  year_of_passing: 2013-02-19
+  user_id: 1
+
+two:
+  degree: MyString
+  institute: MyString
+  university: MyString
+  percenrtage: 1.5
+  year_of_passing: 2013-02-19
+  user_id: 1

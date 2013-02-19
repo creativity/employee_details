@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  preffer_name: MyString
+  present_address: MyText
+  permanant_address: MyText
+  mobile_no: MyString
+  residance_no: MyString
+  date_of_birth: 2013-02-19
+  place_of_birth: MyString
+  gender: MyString
+  blood_group: MyString
+  passport_no: MyString
+  place_of_issue: MyString
+  date_of_issue: MyString
+  valid_till: 2013-02-19
+  hobbies: MyString
+
+two:
+  preffer_name: MyString
+  present_address: MyText
+  permanant_address: MyText
+  mobile_no: MyString
+  residance_no: MyString
+  date_of_birth: 2013-02-19
+  place_of_birth: MyString
+  gender: MyString
+  blood_group: MyString
+  passport_no: MyString
+  place_of_issue: MyString
+  date_of_issue: MyString
+  valid_till: 2013-02-19
+  hobbies: MyString

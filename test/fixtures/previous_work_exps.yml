@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  organisation: MyString
+  duration: MyString
+  department: MyString
+  designation: MyString
+  reason_to_leave: MyText
+
+two:
+  organisation: MyString
+  duration: MyString
+  department: MyString
+  designation: MyString
+  reason_to_leave: MyText
