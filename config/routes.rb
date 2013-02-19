@@ -1,5 +1,7 @@
 HindaviEmployee::Application.routes.draw do
 
+  #get "user/index"
+
   #get "appraisal/index"
 
   devise_for :users, controllers: { registrations: 'registrations' }, :path => "users"
@@ -51,6 +53,8 @@ HindaviEmployee::Application.routes.draw do
   resources :leave_types
 
   resources :salaries
+
+  resources :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
