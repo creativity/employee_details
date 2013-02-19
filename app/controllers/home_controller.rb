@@ -116,17 +116,19 @@ class HomeController < ApplicationController
 
  end 
 
+  def employee_form_info
 
+  end
 
-def newuser_sign_up
+  def newuser_sign_up
 
-end
+  end
 
-def create_user
+  def create_user
     @user = User.new(:email => params[:email], :password => "hindavi123",:password_confirmation=>"hindavi123",:username=>params[:username],:first_name=>params[:first_name],:last_name=>params[:last_name])
     @user.save
     redirect_to home_user_list_path
-end
+  end
 
 
 

@@ -1,0 +1,14 @@
+%p#notice= notice
+%p
+  %b User:
+  = @leave_request.user_id
+%p
+  %b Task name:
+  = @leave_request.leave_date
+%p
+  %b Task description:
+  = @leave_request.remark.html_safe
+
+.form-actions
+  = edit_button(@leave_request)
+  = destroy_button(@leave_request)

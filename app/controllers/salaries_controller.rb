@@ -11,6 +11,9 @@ class SalariesController < ApplicationController
   def show
     @salary = Salary.find(params[:id])
     @date = Date.new(@salary.target_year.to_i, @salary.target_month.to_i, 1)
+    respond_to do |format|
+      format.js
+    end
   end
 
   def new
