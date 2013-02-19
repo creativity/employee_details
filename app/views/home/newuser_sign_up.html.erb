@@ -1,0 +1,21 @@
+<h2>Sign up</h2>
+
+<%= form_tag('create_user') do  %>
+  <%= devise_error_messages! %>
+
+    <div>Email<br />
+    <%= text_field_tag "email" %></div>
+
+    <div>Username<br />
+      <%= text_field_tag "username" %></div>
+
+    <div>First Name<br />
+    <%= text_field_tag "first_name" %></div>
+
+    <div>Last Name<br />
+    <%= text_field_tag "last_name" %></div>
+
+    <div><%= submit_tag "Sign up", :class => "btn btn-link"%></div>
+<% end %>
+
+<%#= render "devise/shared/links" %>
