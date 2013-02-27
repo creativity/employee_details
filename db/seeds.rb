@@ -5,7 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
+User.delete_all
+Role.delete_all
+LeaveType.delete_all
 User.create!(:email=>"admin@hindavi.in", :password=>"admin@h", :password_confirmation=>"admin@h",  :status=>"Active", :username=>"hindavi", :role_id => 1, :first_name => "hindavi", :last_name => "technologies")
 Role.create!([{ role_type: 'admin' },	{ role_type: 'user' }])
 LeaveType.create!([{ name: 'sick leave' },	{ name: 'casual leave' }, { name: 'earned leave' }])
@@ -29,5 +31,4 @@ open("#{Rails.root}/public/mother_tounge.txt") do |language|
       Language.create!(:language_name=>lang)
    end
 
-end	
-
+end

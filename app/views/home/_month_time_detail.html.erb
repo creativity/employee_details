@@ -1,24 +1,22 @@
-
-<table>
-	<tr>
-		 <th>Month</th>
-		 <th>Date</th>
-		 <th>Log our</th>
-	</tr>
+<table class="table table-striped">
+    <tr>
+        <th>Month</th>
+        <th>Date</th>
+        <th>Log our</th>
+    </tr>
 	<%@totaltime=0%>
-<% @userslog.each do |ulog|%>
-<tr>
-    <td><%= ulog.punch_in.strftime('%B')%></td>
-    <td></td>
-    
-    <td><%= ulog.punch_in.strftime('%d - %m - %y')%></td>
-    <td></td>
-    
-    <td><%=  ulog.timelog %></td>&nbsp;&nbsp;	
-    <td></td>	
-</tr>
-<% @totaltime += ulog.loghrs.to_f %>
-
-<% end if @userslog %>
-<tr><td><b>Total Time </td> <td> - </td> <td> <b><%= @totaltime.round(2)%> - hrs</td></tr>
+    <% @userslog.each do |ulog|%>
+    <tr>
+        <td><%= ulog.punch_in.strftime('%B')%></td>
+        <td><%= ulog.punch_in.strftime('%d - %m - %y')%></td>
+        <td><%=  ulog.timelog %></td>&nbsp;&nbsp;
+    </tr>
+    <% @totaltime += ulog.loghrs.to_f %>
+    <% end if @userslog %>
+    <tr>
+      <td>
+        <b>Total Time</b>
+      </td>
+      <td colspan="2"><b><%= @totaltime.round(2)%> - hrs</b></td>
+    </tr>
 </table>
