@@ -1,0 +1,18 @@
+
+<table class="fields">
+Name : <%= f.text_field :name %>
+
+     Relationship : <%= f.text_field :relationship %>
+
+     Occupation : <%= f.text_field :occupation %>
+     
+     Contact Info : <%= f.text_field :contact_info %>
+     
+     Age : <%= f.text_field :age %>
+     
+      <%= f.hidden_field :user_id,:value=>current_user.id %>
+
+      <%= f.hidden_field :_destroy%> 
+      
+      <%= link_to "Remove","#",  :onClick => "remove_fields(this);"%>
+</table>

@@ -1,5 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
   def create
+    @user.build_personal_info
     if verify_recaptcha
       super
     else

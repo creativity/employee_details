@@ -11,13 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130219063218) do
+ActiveRecord::Schema.define(:version => 20130220062756) do
 
   create_table "additional_infos", :force => true do |t|
     t.text     "description"
     t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "personal_info_id"
   end
 
   create_table "addresses", :force => true do |t|
@@ -59,8 +60,9 @@ ActiveRecord::Schema.define(:version => 20130219063218) do
     t.string   "grade"
     t.date     "year"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "personal_info_id"
   end
 
   create_table "education_details", :force => true do |t|
@@ -70,8 +72,9 @@ ActiveRecord::Schema.define(:version => 20130219063218) do
     t.float    "percenrtage"
     t.date     "year_of_passing"
     t.integer  "user_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "personal_info_id"
   end
 
   create_table "events", :force => true do |t|
@@ -92,8 +95,15 @@ ActiveRecord::Schema.define(:version => 20130219063218) do
     t.string   "contact_info"
     t.string   "age"
     t.integer  "user_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "personal_info_id"
+  end
+
+  create_table "languages", :force => true do |t|
+    t.string   "language_name"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "leave_requests", :force => true do |t|
@@ -176,27 +186,30 @@ ActiveRecord::Schema.define(:version => 20130219063218) do
     t.string   "department"
     t.string   "designation"
     t.text     "reason_to_leave"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.integer  "user_id"
+    t.integer  "personal_info_id"
   end
 
-  create_table "professioanl_achivments", :force => true do |t|
+  create_table "professional_achivments", :force => true do |t|
     t.text     "description"
     t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "personal_info_id"
   end
 
-  create_table "proffesional_refs", :force => true do |t|
+  create_table "professional_refs", :force => true do |t|
     t.string   "name"
     t.string   "contact_no"
     t.string   "organisation"
     t.string   "department"
     t.string   "designation"
     t.integer  "user_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "personal_info_id"
   end
 
   create_table "projects", :force => true do |t|
@@ -310,6 +323,14 @@ ActiveRecord::Schema.define(:version => 20130219063218) do
     t.string   "team_name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "userlanguages", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "language_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "personal_info_id"
   end
 
   create_table "users", :force => true do |t|
