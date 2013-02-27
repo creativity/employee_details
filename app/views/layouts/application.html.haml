@@ -8,7 +8,7 @@
     :javascript
       $(document).ready(function() {
         var CKEDITOR_BASEPATH = '/assets/ckeditor/';
-        $("#datepicker").datepicker();
+        $(".datepicker").datepicker();
         $('#calendar').fullCalendar({
         })
 
@@ -77,7 +77,7 @@
             %li
               =link_to "Salary Slip","#"
             %li
-              =link_to "Profile","#"
+              =link_to "Profile",new_personal_info_path
             %li
               =link_to "Home",home_index_path
           %body

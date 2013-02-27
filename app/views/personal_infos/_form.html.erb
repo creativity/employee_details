@@ -1,0 +1,70 @@
+<script>
+
+function add_fields(link, association, content) {
+  var new_id = new Date().getTime();                     
+  var regexp = new RegExp("new_" + association, "g");    
+  $(link).parent().before(content.replace(regexp, new_id));
+}
+
+function remove_fields(link) {
+  $(link).prev("input[type=hidden]").val("1");
+    $(link).closest(".fields").remove();
+    $('.linkadd').show();
+}
+
+
+</script>
+<%= nested_form_for(@personal_info) do |fp| %>
+
+    <%= fp.hidden_field :user_id,:value=>current_user.id%>
+
+    Prefer Name : <%= fp.text_field :preffer_name %><br/>
+   
+    Permant address : <%= fp.text_area :permanant_address ,:rows=>4,:cols=>26 %> <br/>
+     
+    Present address : <%= fp.text_area :present_address,:rows=>4,:cols=>26 %> <br/>
+
+    Mobile No : <%= fp.text_field :mobile_no%> <br/>
+
+    residance_no : <%= fp.text_field :residance_no %> <br/>
+
+    Date of Birth : <%= fp.text_field :date_of_birth,:class=>'datepicker' %> <br/>
+
+    Place Of Birth : <%= fp.text_field :place_of_birth %> <br/>
+
+    Gender : <%= fp.text_field :gender %> <br/>
+
+    Blood Group : <%= fp.text_field :blood_group %> <br/>
+
+    Passport no. : <%= fp.text_field :passport_no %> <br/>
+
+    Place of Issue : <%= fp.text_field :place_of_issue %> <br/>
+    
+    Date of Issue : <%= fp.text_field :date_of_issue,:class=>'datepicker' %> <br/>
+    
+    Valid till : <%= fp.text_field :valid_till,:class=>'datepicker' %> <br/>
+
+    Hobbies : <%= fp.text_area :hobbies , :rows=>4,:cols=>26 %> <br/>
+
+  <h3><%= "Family Details"%></h3><br/>
+  
+    <%= fp.fields_for :family_details do |family| %>
+
+     <%= render :partial=>'family_form_partial' , :locals=> { :f => family } %>
+    
+    <div class='linkadd'><%= link_to_add_fields("Add FamilyDetail",fp, :family_details, "family_form_partial")%></div>
+   
+    
+    <% end %>
+       
+
+
+
+
+
+  <div class="actions">
+    <%= fp.submit %>
+  </div>
+<% end %>
+
+

@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require fullcalendar
 //= require_tree .
+//= require jquery_nested_form
+//Nested Forms
 

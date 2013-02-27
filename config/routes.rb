@@ -1,5 +1,7 @@
 HindaviEmployee::Application.routes.draw do
 
+  get "personal_infos/index"
+
   #get "user/index"
 
   #get "appraisal/index"
@@ -55,6 +57,8 @@ HindaviEmployee::Application.routes.draw do
   resources :salaries
 
   resources :users
+
+  resources :personal_infos
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

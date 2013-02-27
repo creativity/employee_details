@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+
+attr_accessible :email, :password, :password_confirmation, :remember_me, :status, :username, :role, :role_id, :first_name, :last_name,:personal_info_attributes
 	# associations----------------------------------------------------------------------------------------
 	belongs_to  :role
   has_many :team_users
@@ -18,10 +20,12 @@ class User < ActiveRecord::Base
   has_many :education_details
   has_many :certificate_informations
   has_many :previous_work_exps
-  has_one :professioanl_achivment
-  has_many :proffesional_refs
+  has_one :professional_achivment
+  has_many :professional_refs
   has_one :additional_info 
 
+
+  accepts_nested_attributes_for :personal_info
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -30,7 +34,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :status, :username, :role, :role_id, :first_name, :last_name
+  
 
   # callbacks -----------------------------------------------------------------------------------------------
   after_create  :create_user_role
